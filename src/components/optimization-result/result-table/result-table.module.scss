@@ -1,0 +1,27 @@
+.ResultTable {
+  border-collapse: collapse;
+
+  .headerRow {
+    background-color: #3f51b5;
+    th {
+      border: 1px solid white;
+    }
+    color: white;
+  }
+  .tableBody {
+    tr:nth-child(even) {
+      background-color: gainsboro;
+    }
+
+    td {
+      border: 1px solid darkgray;
+    }
+    td:first-child {
+      border-left: none;
+    }
+
+    td:last-child {
+      border-right: none;
+    }
+  }
+}
