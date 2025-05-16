@@ -2,20 +2,72 @@
   border-collapse: collapse;
 
   .headerRow {
-    background-color: #3f51b5;
+    background-color: var(--mui-palette-primary-main);
     th {
       border: 1px solid white;
+      min-width: 50px;
+      &.nameColumn {
+        min-width: 200px;
+      }
     }
     color: white;
   }
+
+  .footerRow {
+    background-color: var(--mui-palette-primary-main);
+    th {
+      border: 1px solid white;
+      min-width: 50px;
+    }
+    color: white;
+  }
+
   .tableBody {
+    .stage {
+      display: inline;
+      color: var(--mui-palette-primary-contrastText);
+      border-radius: 2px;
+      padding: 4px;
+      &.stageOne {
+        background-color: var(--mui-palette-error-light);
+      }
+      &.stageTwo {
+        background-color: var(--mui-palette-warning-light);
+      }
+      &.stageThree {
+        background-color: var(--mui-palette-success-light);
+      }
+    }
+
     tr:nth-child(even) {
       background-color: gainsboro;
     }
 
     td {
       border: 1px solid darkgray;
+      &.searchStart {
+        background-color: rgb(var(--mui-palette-error-lightChannel) / 0.5);
+      }
+      &.explorationStart {
+        background-color: rgb(var(--mui-palette-warning-lightChannel) / 0.5);
+      }
+      &.investmentStart {
+        background-color: rgb(var(--mui-palette-success-lightChannel) / 0.5);
+      }
+      &.productionStart {
+        background-color: rgb(var(--mui-palette-primary-lightChannel) / 0.5);
+      }
+      &.yearStageOne {
+        background-color: rgb(var(--mui-palette-error-lightChannel) / 0.5);
+      }
+      &.yearStageTwo {
+        background-color: rgb(var(--mui-palette-warning-lightChannel) / 0.5);
+      }
+      &.yearStageThree {
+        background-color: rgb(var(--mui-palette-success-lightChannel) / 0.5);
+      }
     }
+
     td:first-child {
       border-left: none;
     }

@@ -17,7 +17,7 @@ export const mockOptimizationResultData: OptimizationResultType[] = [
     explorationStart: 2049,
     investmentStart: 2049,
     productionStart: 2051,
-    income: [0, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
+    income: [1, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
   },
   {
     result: 'good',
@@ -27,7 +27,7 @@ export const mockOptimizationResultData: OptimizationResultType[] = [
     explorationStart: 2049,
     investmentStart: 2049,
     productionStart: 2056,
-    income: [0, 0, 0, 0, 0, 0, 0],
+    income: [2, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
   },
   {
     result: 'bad',
@@ -37,7 +37,7 @@ export const mockOptimizationResultData: OptimizationResultType[] = [
     explorationStart: 2049,
     investmentStart: 2049,
     productionStart: 2049,
-    income: [0, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
+    income: [3, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
   },
   {
     result: 'good',
@@ -46,7 +46,7 @@ export const mockOptimizationResultData: OptimizationResultType[] = [
     explorationStart: 2049,
     investmentStart: 2049,
     productionStart: 2049,
-    income: [0, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
+    income: [4, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
   },
   {
     result: 'good',
@@ -55,7 +55,7 @@ export const mockOptimizationResultData: OptimizationResultType[] = [
     explorationStart: 2049,
     investmentStart: 2049,
     productionStart: 2049,
-    income: [0, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
+    income: [5, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
   },
   {
     result: 'good',
@@ -64,6 +64,6 @@ export const mockOptimizationResultData: OptimizationResultType[] = [
     explorationStart: 2049,
     investmentStart: 2049,
     productionStart: 2049,
-    income: [0, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
+    income: [6, 0, 0, 0, 0, 0, 0, 38.9, 0, 0, 10],
   },
 ];
