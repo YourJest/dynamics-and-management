@@ -223,61 +223,63 @@ export const ResultTable = () => {
   });
 
   return (
-    <table className={css.ResultTable}>
-      <thead>
-        {resultTable.getHeaderGroups().map((headerGroup) => (
-          <tr className={css.headerRow} key={headerGroup.id}>
-            {headerGroup.headers.map((header) => (
-              <th
-                key={header.id}
-                colSpan={header.colSpan}
-                className={clsx(header.id === 'name' && css.nameColumn)}>
-                <>
-                  {flexRender(
-                    header.column.columnDef.header,
-                    header.getContext()
-                  )}
-                </>
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody className={css.tableBody}>
-        {resultTable.getRowModel().rows.map((row) => (
-          <tr key={row.id}>
-            {row.getVisibleCells().map((cell) => {
-              return (
-                <td
-                  key={cell.id}
-                  className={clsx(
-                    cellColorByType[cell.column.id],
-                    cell.id.includes('income-') &&
-                      yearWithStageStyles[row.getValue<number>('stage')]
-                  )}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              );
-            })}
-          </tr>
-        ))}
-      </tbody>
-      <tfoot>
-        {resultTable.getFooterGroups().map((footerGroup) => (
-          <tr key={footerGroup.id} className={css.footerRow}>
-            {footerGroup.headers.map((header) => (
-              <th key={header.id}>
-                {header.isPlaceholder
-                  ? null
-                  : flexRender(
-                      header.column.columnDef.footer,
+    <div className={css.ResultTable}>
+      <table>
+        <thead>
+          {resultTable.getHeaderGroups().map((headerGroup) => (
+            <tr className={css.headerRow} key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <th
+                  key={header.id}
+                  colSpan={header.colSpan}
+                  className={clsx(header.id === 'name' && css.nameColumn)}>
+                  <>
+                    {flexRender(
+                      header.column.columnDef.header,
                       header.getContext()
                     )}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </tfoot>
-    </table>
+                  </>
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody className={css.tableBody}>
+          {resultTable.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell) => {
+                return (
+                  <td
+                    key={cell.id}
+                    className={clsx(
+                      cellColorByType[cell.column.id],
+                      cell.id.includes('income-') &&
+                        yearWithStageStyles[row.getValue<number>('stage')]
+                    )}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          {resultTable.getFooterGroups().map((footerGroup) => (
+            <tr key={footerGroup.id} className={css.footerRow}>
+              {footerGroup.headers.map((header) => (
+                <th key={header.id}>
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.footer,
+                        header.getContext()
+                      )}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </tfoot>
+      </table>
+    </div>
   );
 };

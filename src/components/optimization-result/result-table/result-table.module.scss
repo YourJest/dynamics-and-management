@@ -1,5 +1,9 @@
 .ResultTable {
-  border-collapse: collapse;
+  overflow: auto;
+  max-width: 100%;
+  table {
+    border-collapse: collapse;
+  }
 
   .headerRow {
     background-color: var(--mui-palette-primary-main);
