@@ -6,7 +6,7 @@ export const OptimizationResult = () => {
   return (
     <div className={css.OptimizationResult}>
       <PresentationSelect />
-      <ResultTable incomeLength={11} />
+      <ResultTable />
     </div>
   );
 };

@@ -4,15 +4,14 @@ import {
   useReactTable,
   type ColumnDef,
 } from '@tanstack/react-table';
-import {
-  mockOptimizationResultData,
-  type OptimizationResultType,
-} from '../../../mocks/optimization-result';
+import { type OptimizationResultType } from '../../../mocks/optimization-result';
 import { Checkbox, IconButton, Typography } from '@mui/material';
 import { useMemo, useState } from 'react';
 import { Circle, Edit } from '@mui/icons-material';
 import css from './result-table.module.scss';
 import clsx from 'clsx';
+import { useAppSelector } from '../../../hooks/storeHooks';
+import { getIncomeLength, getResults } from '../../../services/result/slice';
 
 const stageStyles = {
   1: css.stageOne,
@@ -39,12 +38,9 @@ const cellColorByType: { [key in string]: string } = {
   productionStart: css.productionStart,
 };
 
-// TODO Это должно лежать где-нибудь в сторе
-interface ResultTableProps {
-  incomeLength?: number;
-}
-
-export const ResultTable = ({ incomeLength = 10 }: ResultTableProps) => {
+export const ResultTable = () => {
+  const incomeLength = useAppSelector(getIncomeLength);
+  const resultData = useAppSelector(getResults);
   const [rowSelection, setRowSelection] = useState({});
 
   const columns: ColumnDef<OptimizationResultType>[] = useMemo(
@@ -216,7 +212,7 @@ export const ResultTable = ({ incomeLength = 10 }: ResultTableProps) => {
   );
 
   const resultTable = useReactTable({
-    data: mockOptimizationResultData,
+    data: resultData,
     columns: [...columns, ...incomeTotalColumn, ...incomeColumns],
     state: {
       rowSelection,
