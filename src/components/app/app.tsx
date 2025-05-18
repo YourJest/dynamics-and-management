@@ -1,10 +1,11 @@
-import { createTheme, ThemeProvider, Typography } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
 import { OptimizationResult } from '../optimization-result/optimization-result';
 import { Provider } from 'react-redux';
 import { store } from '../../store';
 import { Allotment } from 'allotment';
 import 'allotment/dist/style.css';
 import css from './app.module.scss';
+import { RestrictionsPanel } from '../restrictions-panel/restrictions-panel';
 
 export const App = () => {
   const theme = createTheme({
@@ -15,16 +16,12 @@ export const App = () => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <main className={css.DynamicsAndManagement}>
-          <Allotment defaultSizes={[100, 100]} vertical>
-            <Allotment.Pane>
-              <section>
-                <OptimizationResult />
-              </section>
+          <Allotment defaultSizes={[50, 50]} vertical>
+            <Allotment.Pane minSize={250}>
+              <OptimizationResult />
             </Allotment.Pane>
-            <Allotment.Pane>
-              <section>
-                <Typography>Постановка задачи</Typography>
-              </section>
+            <Allotment.Pane minSize={250}>
+              <RestrictionsPanel />
             </Allotment.Pane>
           </Allotment>
         </main>

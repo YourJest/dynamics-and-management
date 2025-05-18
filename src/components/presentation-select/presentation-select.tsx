@@ -1,6 +1,4 @@
-import { Typography, Select, MenuItem } from '@mui/material';
-import css from './presentation-select.module.scss';
-import { useState } from 'react';
+import { Select } from '../select/select';
 
 const Presentation = {
   CAPITAL_COSTS: 'capital-costs',
@@ -12,29 +10,23 @@ const Presentation = {
 
 type PresentationType = (typeof Presentation)[keyof typeof Presentation];
 
+const options: { value: PresentationType; text: string }[] = [
+  { value: Presentation.CAPITAL_COSTS, text: 'Капитальные затраты' },
+  { value: Presentation.OPERATING_COSTS, text: 'Эксплуатационные затраты' },
+  { value: Presentation.REVENUE, text: 'Выручка' },
+  { value: Presentation.CASH_FLOW, text: 'Денежный поток' },
+  {
+    value: Presentation.DISCOUNTED_CASH_FLOW,
+    text: 'Дисконтированный денежный поток',
+  },
+];
+
 export const PresentationSelect = () => {
-  const [presentation, setPresentation] = useState<PresentationType>(
-    Presentation.CAPITAL_COSTS
-  );
   return (
-    <div className={css.PresentationSelect}>
-      <Typography>Представления: </Typography>
-      <Select
-        value={presentation}
-        onChange={(e) => setPresentation(e.target.value)}
-        autoWidth>
-        <MenuItem value={Presentation.CAPITAL_COSTS}>
-          Капитальные затраты
-        </MenuItem>
-        <MenuItem value={Presentation.OPERATING_COSTS}>
-          Эксплуатационные затраты
-        </MenuItem>
-        <MenuItem value={Presentation.REVENUE}>Выручка</MenuItem>
-        <MenuItem value={Presentation.CASH_FLOW}>Денежный поток</MenuItem>
-        <MenuItem value={Presentation.DISCOUNTED_CASH_FLOW}>
-          Дисконтированный денежный поток
-        </MenuItem>
-      </Select>
-    </div>
+    <Select
+      label='Представления:'
+      initialValue={Presentation.CAPITAL_COSTS}
+      options={options}
+    />
   );
 };
